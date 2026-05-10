@@ -1,0 +1,22 @@
+--- @meta
+
+---@class MessageSendSettings
+---@field allowedMentions AllowedMentions|nil
+---@field content string|nil
+---@field username string|nil
+---@field avaterUrl string|nil
+---@field embeds nil UNIMPLEMENTED
+---@field files nil UNIMPLEMENTED
+---@field tts boolean|nil UNIMPLEMENTED
+---@field poll nil UNIMPLEMENTED
+---@field flags nil UNIMPLEMENTED
+---@field threadId string|nil UNIMPLEMENTED
+---@field threadName string|nil UNIMPLEMENTED
+---@field appliedTags string|nil UNIMPLEMENTED
+---@field components nil UNIMPLEMENTED
+---@field getSentMessage boolean|nil UNIMPLEMENTED
+
+---@class AllowedMentions
+---@field parse string[]
+---@field roles string[]
+---@field users string[]
