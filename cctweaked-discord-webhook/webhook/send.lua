@@ -7,6 +7,7 @@ local settingsToPayload = require("cctweaked-discord-webhook.webhook.settingsToP
 ---@return boolean|MessageResult [1] If `isSynchronously` enabled, this will return MessageResult
 local function send(self, arg1, isSynchronously)
   local payload = {
+    url = self.url,
     username = self.username,
     avatar_url = self.avatarUrl,
   };
@@ -18,7 +19,7 @@ local function send(self, arg1, isSynchronously)
   end
 
   local requestSuccessed = http.request(
-    self.url,
+    payload.url,
     textutils.serialiseJSON(payload),
     { ["Content-Type"] = "application/json" },
     false

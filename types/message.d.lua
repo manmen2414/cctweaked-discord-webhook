@@ -10,9 +10,9 @@
 ---@field tts boolean|nil UNIMPLEMENTED
 ---@field poll nil UNIMPLEMENTED
 ---@field flags nil UNIMPLEMENTED
----@field threadId string|nil UNIMPLEMENTED
----@field threadName string|nil UNIMPLEMENTED
----@field appliedTags string|nil UNIMPLEMENTED
+---@field threadId string|nil
+---@field threadName string|nil
+---@field appliedTags string[]|nil Array of tags snowflake
 ---@field components nil UNIMPLEMENTED
 ---@field getSentMessage boolean|nil UNIMPLEMENTED
 
