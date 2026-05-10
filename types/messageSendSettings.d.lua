@@ -15,7 +15,7 @@
 ---@field appliedTags string[]|nil Array of tags snowflake
 ---@field components nil UNIMPLEMENTED
 ---@field getSentMessage boolean|nil
----@field noEscapeBackslash boolean|nil
+---@field charUseAltOfBackslash string|nil
 
 ---@class AllowedMentions
 ---@field parse string[]

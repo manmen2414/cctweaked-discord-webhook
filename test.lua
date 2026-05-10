@@ -99,12 +99,12 @@ local tests = {
     }, true));
   end,
   function()
-    print("[9] Disable Backslash escape");
+    print("[9] Use $uxxxx altanate of unicode escape \\uxxxx");
 
     pretty.pretty_print(textWebhook:send({
       content =
-      "[9] \\u30d0\\u30c3\\u30af\\u30b9\\u30e9\\u30c3\\u30b7\\u30e5\\u30a8\\u30b9\\u30b1\\u30fc\\u30d7\\u306e\\u7121\\u52b9\\u5316",
-      noEscapeBackslash = true
+      "[9] Use $$uxxxx altanate of unicode escape \\uxxxx: `\\\\\\ $u3053$u3093$u306b$u3061$u306f ///`",
+      charUseAltOfBackslash = "$"
     }, true));
   end,
   test10,
