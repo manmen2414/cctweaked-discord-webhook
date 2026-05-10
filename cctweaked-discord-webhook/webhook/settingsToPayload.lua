@@ -1,8 +1,8 @@
----@param settings MessageSendSettings
+---@param settings MessageSettings
 ---@param self DiscordWebhook
 return function(self, settings)
   local payload = {
-    url = self.url,
+    query = "",
     content = "__CCTWEAKED_DISCORD_WEBHOOK_CONTENT__",
     username = self.username,
     avatar_url = self.avatarUrl,
@@ -24,11 +24,11 @@ return function(self, settings)
     payload.applied_tags = settings.appliedTags;
   end
   if settings.threadId then
-    payload.url = payload.url .. queryPrefix .. "thread_id=" .. settings.threadId;
+    payload.query = payload.query .. queryPrefix .. "thread_id=" .. settings.threadId;
     queryPrefix = "&";
   end
   if settings.getSentMessage then
-    payload.url = payload.url .. queryPrefix .. "wait=true";
+    payload.query = payload.query .. queryPrefix .. "wait=true";
     queryPrefix = "&";
   end
   return payload;

@@ -8,6 +8,21 @@ local textWebhook = webhook.DiscordWebhook.new(url.text);
 local forumWebhook = webhook.DiscordWebhook.new(url.forum);
 local badWebhook = webhook.DiscordWebhook.new("https");
 
+local messageObject = nil;
+
+local function test10()
+  print("[10] Wait message object");
+
+  local result = textWebhook:send({
+    content = "[10] Wait message object",
+    getSentMessage = true
+  }, true);
+
+  pretty.pretty_print(result);
+
+  messageObject = result.message;
+end
+
 local tests = {
 
   function()
@@ -91,14 +106,41 @@ local tests = {
       "[9] \\u30d0\\u30c3\\u30af\\u30b9\\u30e9\\u30c3\\u30b7\\u30e5\\u30a8\\u30b9\\u30b1\\u30fc\\u30d7\\u306e\\u7121\\u52b9\\u5316",
       noEscapeBackslash = true
     }, true));
-  end, function()
-  print("[10] Wait message object");
+  end,
+  test10,
+  function()
+    print("[11] Edit message");
 
-  pretty.pretty_print(textWebhook:send({
-    content = "[10] Wait message object",
-    getSentMessage = true
-  }, true));
-end,
+    if not messageObject then
+      test10(); sleep(1);
+    end
+    if not messageObject then
+      error("cannot edit message because test10 wasn't successed.")
+    end
+
+    pretty.pretty_print(
+      textWebhook:edit(
+        messageObject.id, {
+          content =
+          "[11] Edit message",
+        }, true
+      )
+    );
+  end,
+  function()
+    print("[12] Delete message");
+
+    if not messageObject then
+      test10(); sleep(1);
+    end
+    if not messageObject then
+      error("cannot edit message because test10 wasn't successed.")
+    end
+
+    pretty.pretty_print(
+      textWebhook:deleteMessage(messageObject.id, true)
+    );
+  end,
 }
 
 if #args == 0 then

@@ -1,6 +1,6 @@
 --- @meta
 
----@class MessageSendSettings
+---@class MessageSettings
 ---@field allowedMentions AllowedMentions|nil
 ---@field content string|nil
 ---@field username string|nil

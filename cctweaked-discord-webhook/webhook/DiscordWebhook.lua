@@ -10,7 +10,11 @@ function DiscordWebhook.new(url)
     --- Custom avater of webhook instance.
     avatarUrl = nil,
     --- Send message to webhook.
-    send = require("cctweaked-discord-webhook.webhook.send")
+    send = require("cctweaked-discord-webhook.webhook.send"),
+    --- Edit sent message.
+    edit = require("cctweaked-discord-webhook.webhook.edit"),
+    --- Delete sent message.
+    deleteMessage = require("cctweaked-discord-webhook.webhook.deleteMessage"),
   };
   ---@param newURL string
   function instance.setURL(self, newURL)
