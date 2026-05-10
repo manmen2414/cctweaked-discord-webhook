@@ -18,9 +18,15 @@ local function send(self, arg1, isSynchronously)
     payload = settingsToPayload(self, arg1);
   end
 
+  local body = textutils.serialiseJSON(payload);
+
+  if (type(arg1) ~= "string") and arg1.noEscapeBackslash then
+    body = string.gsub(body, "__CCTWEAKED_DISCORD_WEBHOOK_CONTENT__", arg1.content, 1)
+  end
+
   local requestSuccessed = http.request(
     payload.url,
-    textutils.serialiseJSON(payload),
+    body,
     { ["Content-Type"] = "application/json" },
     false
   )

@@ -3,10 +3,13 @@
 return function(self, settings)
   local payload = {
     url = self.url,
-    content = settings.content,
+    content = "__CCTWEAKED_DISCORD_WEBHOOK_CONTENT__",
     username = self.username,
     avatar_url = self.avatarUrl,
   };
+  if not settings.noEscapeBackslash then
+    payload.content = settings.content
+  end
   if settings.username then
     payload.username = settings.username;
   end
