@@ -1,0 +1,23 @@
+--- @meta
+
+---@class MessageSendSettings
+---@field allowedMentions AllowedMentions|nil
+---@field content string|nil
+---@field username string|nil
+---@field avaterUrl string|nil
+---@field embeds nil UNIMPLEMENTED
+---@field files nil UNIMPLEMENTED
+---@field tts boolean|nil UNIMPLEMENTED
+---@field poll nil UNIMPLEMENTED
+---@field flags nil UNIMPLEMENTED
+---@field threadId string|nil
+---@field threadName string|nil
+---@field appliedTags string[]|nil Array of tags snowflake
+---@field components nil UNIMPLEMENTED
+---@field getSentMessage boolean|nil
+---@field noEscapeBackslash boolean|nil
+
+---@class AllowedMentions
+---@field parse string[]
+---@field roles string[]
+---@field users string[]

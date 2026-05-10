@@ -1,23 +1,32 @@
 --- @meta
 
----@class MessageSendSettings
----@field allowedMentions AllowedMentions|nil
----@field content string|nil
----@field username string|nil
----@field avaterUrl string|nil
----@field embeds nil UNIMPLEMENTED
----@field files nil UNIMPLEMENTED
----@field tts boolean|nil UNIMPLEMENTED
----@field poll nil UNIMPLEMENTED
----@field flags nil UNIMPLEMENTED
----@field threadId string|nil
----@field threadName string|nil
----@field appliedTags string[]|nil Array of tags snowflake
----@field components nil UNIMPLEMENTED
----@field getSentMessage boolean|nil UNIMPLEMENTED
----@field noEscapeBackslash boolean|nil
+---@class WebhookMessageAuthor
+---@field id string
+---@field username string
+---@field avatar any|table
+---@field discriminator string
+---@field public_flags number
+---@field flags number
+---@field bot boolean
+---@field global_name any|table
+---@field clan any|table
+---@field primary_guild any|table
 
----@class AllowedMentions
----@field parse string[]
----@field roles string[]
----@field users string[]
+---@class WebhookMessage
+---@field type number
+---@field content string
+---@field mentions string[]
+---@field mention_roles string[]
+---@field attachments table[]
+---@field embeds table[]
+---@field timestamp string
+---@field edited_timestamp any|table
+---@field flags number
+---@field components table[]
+---@field id string
+---@field channel_id string
+---@field author WebhookMessageAuthor
+---@field pinned boolean
+---@field mention_everyone boolean
+---@field tts boolean
+---@field webhook_id string

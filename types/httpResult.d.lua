@@ -3,9 +3,9 @@
 ---@class MessageResult
 ---@field url string
 ---@field successed boolean
----@field message table|nil UNIMPLEMENTED
+---@field message WebhookMessage|nil
 ---@field reason MessageFailureReason|nil
----@field errorResponse table|nil UNIMPLEMENTED
+---@field errorResponse table|nil
 
 ---@alias MessageFailureReason
 ---| "Could not connect"

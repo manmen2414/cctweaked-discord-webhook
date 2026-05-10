@@ -7,6 +7,7 @@ return function(self, settings)
     username = self.username,
     avatar_url = self.avatarUrl,
   };
+  local queryPrefix = "?"
   if not settings.noEscapeBackslash then
     payload.content = settings.content
   end
@@ -23,7 +24,12 @@ return function(self, settings)
     payload.applied_tags = settings.appliedTags;
   end
   if settings.threadId then
-    payload.url = payload.url .. "?thread_id=" .. settings.threadId;
+    payload.url = payload.url .. queryPrefix .. "thread_id=" .. settings.threadId;
+    queryPrefix = "&";
+  end
+  if settings.getSentMessage then
+    payload.url = payload.url .. queryPrefix .. "wait=true";
+    queryPrefix = "&";
   end
   return payload;
 end

@@ -32,7 +32,7 @@ return function()
       messageResult.successed = true;
       ---@type http.Response
       local handle = args[3];
-
+      messageResult.message = textutils.unserialiseJSON(handle.readAll());
       return messageResult;
     end
   end
